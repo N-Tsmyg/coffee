@@ -1,21 +1,13 @@
 import type { NextConfig } from "next";
 
+// Downgraded to Next.js 15.5.x (stable, long-proven on Vercel) after 16.4.6
+// deployed successfully but served a 404 on every route in production —
+// likely a platform-compatibility gap with such a new Next.js release.
+// Tailwind v4 is wired via postcss.config.mjs (@tailwindcss/postcss), which
+// works the same under webpack and Turbopack, so no bundler-specific config
+// is needed here.
 const nextConfig: NextConfig = {
   /* config options here */
-  // cacheComponents/partialPrefetching are brand-new experimental flags that
-  // create-next-app enabled by default on this Next.js version. This site is
-  // static marketing content with no need for them, and they appear to
-  // produce a build/output format Vercel's production routing doesn't
-  // reliably serve yet (build succeeds, but every route 404s live). Disabled
-  // for a plain, reliable static/SSG build.
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
 };
 
 export default nextConfig;
