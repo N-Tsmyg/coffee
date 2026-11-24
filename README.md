@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Environment Variables
+
+The pickup request form on `/contact` sends an email via [Resend](https://resend.com). Set these in Vercel (Project Settings → Environment Variables) and in a local `.env.local` for development:
+
+- `RESEND_API_KEY` — API key from a (free) Resend account.
+- `PICKUP_NOTIFICATION_EMAIL` — the inbox that should receive pickup requests.
+- `PICKUP_FROM_EMAIL` — optional; defaults to Resend's shared sandbox address (`onboarding@resend.dev`), which can only deliver to the Resend account's own email until a sending domain is verified. Once a domain is verified in Resend, set this to an address on that domain (e.g. `pickups@quickespressorepair.com`).
+
+Until these are set, the form will show the customer an error asking them to call instead — submissions are also logged server-side so nothing is silently lost.

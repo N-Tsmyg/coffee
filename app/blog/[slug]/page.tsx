@@ -228,7 +228,7 @@ export default async function BlogPostPage({
               href="/contact"
               className="flex items-center justify-center rounded-md border border-offwhite px-8 py-4 text-lg font-semibold text-offwhite hover:bg-offwhite hover:text-charcoal"
             >
-              Contact Us
+              Request a Pickup
             </Link>
           </div>
         </div>
