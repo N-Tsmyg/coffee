@@ -165,18 +165,18 @@ export function PickupRequestForm() {
 
         <div>
           <label htmlFor="preferredTime" className="block text-sm font-semibold text-charcoal">
-            Preferred pickup time <span className="text-copper">*</span>
+            Preferred pickup time (optional)
           </label>
           <input
             id="preferredTime"
             name="preferredTime"
             type="datetime-local"
-            required
             min={minDateTime}
             className="mt-1.5 w-full rounded-md border border-line bg-offwhite px-4 py-3 text-base text-charcoal"
           />
           <p className="mt-1.5 text-sm text-slate">
-            We&apos;ll plan to arrive within a 3-hour window starting at this time.
+            If you give a time, we&apos;ll aim to arrive within a 3-hour window
+            starting then. Otherwise we&apos;ll call you to schedule.
           </p>
         </div>
       </div>

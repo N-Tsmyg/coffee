@@ -6,6 +6,7 @@ import {
   PHASE_1_BRANDS,
   PHASE_1_CITIES,
 } from "@/data/constants";
+import { PickupRequestForm } from "@/components/PickupRequestForm";
 
 const DIFFERENTIATORS = [
   {
@@ -118,21 +119,6 @@ export default function HomePage() {
               your machine, so you don&apos;t have to go anywhere.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href={`tel:${BUSINESS.phoneTel}`}
-                className="flex items-center justify-center rounded-md bg-copper px-8 py-4 text-lg font-semibold text-offwhite hover:bg-copper-dark"
-              >
-                Call {BUSINESS.phoneDisplay}
-              </a>
-              <Link
-                href="/contact"
-                className="flex items-center justify-center rounded-md border border-charcoal px-8 py-4 text-lg font-semibold text-charcoal hover:bg-charcoal hover:text-offwhite"
-              >
-                Request a Pickup
-              </Link>
-            </div>
-
             <p className="mt-6 text-sm text-slate">
               Proudly serving Chula Vista to Fallbrook and Downtown San Diego
               to Alpine.{" "}
@@ -141,6 +127,27 @@ export default function HomePage() {
               </Link>
               .
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pickup request form */}
+      <section className="border-b border-line">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold text-charcoal">
+            Request a Pickup
+          </h2>
+          <p className="mt-3 text-base text-slate">
+            Fill out the form below and we&apos;ll get back to you to schedule
+            your pickup — or call us at{" "}
+            <a href={`tel:${BUSINESS.phoneTel}`} className="font-medium text-copper underline">
+              {BUSINESS.phoneDisplay}
+            </a>
+            . Fields marked <span className="text-copper">*</span> are
+            required.
+          </p>
+          <div className="mt-8 rounded-lg border border-line bg-paper p-6 sm:p-8">
+            <PickupRequestForm />
           </div>
         </div>
       </section>

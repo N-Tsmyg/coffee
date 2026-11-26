@@ -44,14 +44,16 @@ export async function POST(request: Request) {
 
   const { name, phone, address, brand, preferredTime, description } = body;
 
-  if (!name?.trim() || !phone?.trim() || !address?.trim() || !brand?.trim() || !preferredTime?.trim()) {
+  if (!name?.trim() || !phone?.trim() || !address?.trim() || !brand?.trim()) {
     return NextResponse.json(
       { error: "Please fill out all required fields." },
       { status: 400 }
     );
   }
 
-  const windowText = formatWindow(preferredTime);
+  const windowText = preferredTime?.trim()
+    ? formatWindow(preferredTime.trim())
+    : "Not specified — call to schedule";
 
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.PICKUP_NOTIFICATION_EMAIL;
