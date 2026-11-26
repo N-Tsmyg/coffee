@@ -139,12 +139,10 @@ export default function HomePage() {
           </h2>
           <p className="mt-3 text-base text-slate">
             Fill out the form below and we&apos;ll get back to you to schedule
-            your pickup — or call us at{" "}
-            <a href={`tel:${BUSINESS.phoneTel}`} className="font-medium text-copper underline">
-              {BUSINESS.phoneDisplay}
-            </a>
-            . Fields marked <span className="text-copper">*</span> are
-            required.
+            your pickup.
+          </p>
+          <p className="mt-1 text-sm text-slate">
+            Fields marked <span className="text-copper">*</span> are required.
           </p>
           <div className="mt-8 rounded-lg border border-line bg-paper p-6 sm:p-8">
             <PickupRequestForm />

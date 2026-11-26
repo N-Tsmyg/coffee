@@ -4,7 +4,7 @@ import { MobileNav } from "./MobileNav";
 
 export function Header() {
   return (
-    <header className="relative border-b border-line bg-offwhite">
+    <header className="sticky top-0 z-50 border-b border-line bg-offwhite">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-copper focus:px-4 focus:py-2 focus:text-offwhite"

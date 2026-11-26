@@ -12,6 +12,7 @@ import "./globals.css";
 import { BUSINESS, SITE_URL } from "@/data/constants";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { FloatingCallButton } from "@/components/FloatingCallButton";
 
 const siteName = BUSINESS.name;
 const defaultTitle = `${siteName} | Espresso & Coffee Machine Repair in San Diego`;
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        <FloatingCallButton />
       </body>
     </html>
   );
