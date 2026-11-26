@@ -109,7 +109,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="mx-auto max-w-3xl text-center">
             <h1 className="font-[family-name:var(--font-heading)] text-4xl font-bold leading-tight text-charcoal sm:text-5xl">
               Expert Espresso &amp; Coffee Machine Repair in San Diego
             </h1>
