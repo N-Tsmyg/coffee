@@ -57,6 +57,14 @@ export function Footer() {
             <p className="mt-3 text-sm text-offwhite/80">
               We accept {BUSINESS.paymentMethods.join(", ")}.
             </p>
+            <a
+              href={BUSINESS.googleProfileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block text-sm font-medium text-copper-light underline hover:text-copper"
+            >
+              Find us on Google
+            </a>
           </div>
 
           <FooterColumn title="Services">

@@ -87,6 +87,22 @@ export default function ContactPage() {
                 We accept {BUSINESS.paymentMethods.join(", ")}.
               </p>
             </div>
+            <div>
+              <h2 className="font-[family-name:var(--font-heading)] text-xl font-bold text-charcoal">
+                Find Us Online
+              </h2>
+              <p className="mt-3 text-base text-slate">
+                See our profile, hours, and reviews on Google.
+              </p>
+              <a
+                href={BUSINESS.googleProfileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-block font-medium text-copper underline"
+              >
+                View us on Google
+              </a>
+            </div>
           </div>
         </div>
       </section>

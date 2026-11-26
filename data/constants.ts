@@ -43,6 +43,7 @@ export const BUSINESS = {
   cardPaymentsAccepted: true,
   warrantyConfirmed: false, // do not state any warranty period anywhere
   allBrandsServiced: true, // no brand restrictions
+  googleProfileUrl: "https://share.google/G9sXLah4SXhA5QWx3",
 } as const;
 
 export const OWNER = {
