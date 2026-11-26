@@ -86,4 +86,46 @@ export const CITY_CONTENT: Record<string, CityContent> = {
     highlight:
       "Inland heat and the county's hard water are the two factors we weigh first when diagnosing a Poway machine.",
   },
+  alpine: {
+    intro:
+      "Alpine sits at a higher elevation in the East County backcountry, with a more rural, wooded feel near Cleveland National Forest. Summers are hot and dry, and some homes here are on well water rather than the county system, which can mean different mineral content affecting descaling needs.",
+    highlight:
+      "Well water versus county water makes mineral buildup less predictable here, so we always ask about water source before diagnosing a scale-related issue.",
+  },
+  "del-mar": {
+    intro:
+      "Del Mar is one of the county's smaller, more affluent coastal communities, known for its beaches and the Del Mar racetrack. Coastal salt air causes the same corrosion we see in La Jolla and Encinitas, and we see a higher share of premium prosumer and super-automatic machines here.",
+    highlight:
+      "We handle a lot of higher-end machines in Del Mar, from prosumer semi-automatics to premium super-automatics.",
+  },
+  "rancho-bernardo": {
+    intro:
+      "Rancho Bernardo is one of San Diego's more established suburban communities, known for its golf courses and a large population of long-term and retired residents. That matches our client base well — we see a lot of well-maintained machines here that are simply due for routine service rather than a major repair.",
+    highlight:
+      "A large share of our Rancho Bernardo calls are for routine maintenance rather than emergency repairs.",
+  },
+  ramona: {
+    intro:
+      "Ramona sits in the inland backcountry, known locally for its growing wine country and large rural properties. Summers here run hotter and drier than almost anywhere else in the county, and like Alpine, some homes rely on well water rather than the county system.",
+    highlight:
+      "Inland heat and variable water sources are the two things we check first on a Ramona machine.",
+  },
+  fallbrook: {
+    intro:
+      "Fallbrook, known as the \"Avocado Capital of the World,\" sits in the rural North County near Camp Pendleton. It's a more spread-out, agricultural community, and like our other inland and rural service areas, well water is common alongside the county's harder municipal water.",
+    highlight:
+      "We factor in whether a Fallbrook home is on well or county water before diagnosing a scale-related issue.",
+  },
+  "valley-center": {
+    intro:
+      "Valley Center is one of the more rural North County communities, surrounded by citrus and avocado groves and larger agricultural properties. As in nearby Fallbrook and Ramona, well water is common here, and inland heat during the summer months adds extra wear on machines that aren't due for regular descaling.",
+    highlight:
+      "We see the same well-water variability here as in Fallbrook and Ramona, so we always confirm the water source first.",
+  },
+  "lemon-grove": {
+    intro:
+      "Lemon Grove is one of the county's smaller, more compact cities, tucked between La Mesa and National City in the East County. It's a dense, residential community, and we see mostly everyday home machines here rather than high-end prosumer setups.",
+    highlight:
+      "Lemon Grove calls are typically straightforward residential repairs — nothing unusual about the local conditions here.",
+  },
 };
