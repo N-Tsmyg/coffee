@@ -14,8 +14,12 @@
   --color-charcoal-soft: #2a2a2a;
   --color-offwhite: #fafafa;
   --color-paper: #f2f0ed;
-  --color-copper: #c9742f;
-  --color-copper-dark: #a85f24;
+  /* Darkened from the original #c9742f/#a85f24 — the brighter copper failed
+     WCAG AA contrast (~3.5:1) as link text on light backgrounds and as a
+     button fill under white text. This pairing is ~4.85:1 against white/
+     off-white/paper and with white text on top of it. */
+  --color-copper: #a85f24;
+  --color-copper-dark: #8a4d1d;
   --color-copper-light: #e8a56c;
   --color-slate: #4b5563;
   --color-line: #e2e0dc;

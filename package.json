@@ -2,6 +2,11 @@
   "name": "coffee-site",
   "version": "0.1.0",
   "private": true,
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not op_mini all"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
