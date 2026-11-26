@@ -44,4 +44,46 @@ export const CITY_CONTENT: Record<string, CityContent> = {
     highlight:
       "Scale buildup and heat-related wear are two of the most common issues we diagnose here.",
   },
+  oceanside: {
+    intro:
+      "Oceanside sits right on the coast, with Camp Pendleton to the north and a busy harbor and pier at its center. The salt air here causes the same kind of corrosion we see in La Jolla and Encinitas, and with a mix of year-round residents, vacation rentals, and a strong café culture downtown, we service everything from small home machines to higher-volume prosumer setups.",
+    highlight:
+      "We see a good mix of coastal corrosion issues alongside the usual hard-water scale buildup common across the county.",
+  },
+  vista: {
+    intro:
+      "Vista sits just inland from Oceanside, with noticeably hotter, drier summers than its coastal neighbors. It's also home to a growing craft beverage and brewery scene, which tends to go hand-in-hand with serious home coffee setups. The same countywide hard water applies here, so scale buildup is a frequent diagnosis.",
+    highlight:
+      "Heat-related wear and mineral scale are the two issues we check first on Vista machines.",
+  },
+  "san-marcos": {
+    intro:
+      "San Marcos is one of North County's faster-growing suburban areas, with a mix of young families, Cal State San Marcos students and staff, and newer housing developments. We see plenty of entry-level and mid-range machines here, along with the hard-water scale issues typical of the region.",
+    highlight:
+      "A lot of the machines we pick up in San Marcos are relatively new, so the issue is usually maintenance-related rather than a major component failure.",
+  },
+  "la-mesa": {
+    intro:
+      "Known locally as the \"Jewel of the Hills,\" La Mesa has an established, walkable downtown village and some of the county's older residential neighborhoods. Like nearby El Cajon, its inland location means hotter summers and the same hard water that accelerates scale buildup in boilers and lines.",
+    highlight:
+      "We see a steady mix of long-owned machines here, often due for their first real descaling and internal cleaning in years.",
+  },
+  santee: {
+    intro:
+      "Santee sits just east of El Cajon in the same inland valley, with similarly hot, dry summers and dusty conditions that work their way into vents and internal components over time. It's a family-oriented community, and we see a lot of residential machines alongside office break-room units.",
+    highlight:
+      "Like El Cajon, boiler and group head wear from mineral buildup is one of the most common issues we diagnose here.",
+  },
+  "national-city": {
+    intro:
+      "National City is a dense, working-class community in the South Bay, sitting between Chula Vista and Downtown San Diego along the port. We service both home machines in National City's residential neighborhoods and office break-room units at the businesses along its busy commercial corridors.",
+    highlight:
+      "We regularly pick up machines here on the way through the South Bay, alongside our Chula Vista and Downtown San Diego routes.",
+  },
+  poway: {
+    intro:
+      "Poway calls itself the \"City in the Country,\" with a more spread-out, semi-rural feel than most of its North County neighbors, including horse properties and larger lots. The inland heat here is similar to Santee and Escondido, and we see both high-end prosumer setups and everyday home machines.",
+    highlight:
+      "Inland heat and the county's hard water are the two factors we weigh first when diagnosing a Poway machine.",
+  },
 };

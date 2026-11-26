@@ -100,4 +100,94 @@ export const BRAND_CONTENT: Record<string, BrandContent> = {
       { q: "My automatic milk frother is clogged — is that worth fixing?", a: "Usually, yes — it's often a cleaning or clog issue rather than a failed part. We'll diagnose it and give you an upfront quote." },
     ],
   },
+
+  nespresso: {
+    tagline: "Repair for Nespresso's OriginalLine and Vertuo capsule machines.",
+    bluf: "Nespresso's capsule-based machines are built for convenience, but that convenience relies on a precise piercing and brewing mechanism that can wear or clog over time. We diagnose both OriginalLine and Vertuo models, from a machine that won't brew to one that's leaking or making unusual noises.",
+    commonIssues: [
+      { title: "Capsule piercing needle clogging", body: "Coffee grounds and oils can build up around the piercing mechanism, causing weak extraction or brewing failures." },
+      { title: "Pump priming or pressure issues", body: "A machine that hums but won't dispense water often points to a pump or air-lock issue." },
+      { title: "Water tank sensor or float problems", body: "Can cause the machine to falsely report an empty tank even when it's full." },
+      { title: "Descaling light stuck on", body: "Sometimes a sensor fault rather than an actual mineral buildup issue." },
+    ],
+    faqs: [
+      { q: "Do you repair both OriginalLine and Vertuo Nespresso machines?", a: "Yes, we service both capsule systems." },
+      { q: "My Nespresso won't brew at all — is that worth fixing?", a: "Usually, yes — it's often a clogged needle or pump issue rather than a failed motor. We'll diagnose it and give you an upfront quote." },
+    ],
+  },
+
+  keurig: {
+    tagline: "Repair for Keurig single-serve coffee brewers.",
+    bluf: "Keurig brewers rely on a needle-and-pump system to pierce and brew from a K-Cup, and that system is exactly where most of the issues we see start. We diagnose brewing failures, leaks, and the error messages Keurig's newer models display.",
+    commonIssues: [
+      { title: "Clogged entrance or exit needle", body: "Coffee grounds buildup around the needles is the single most common cause of a weak or partial brew." },
+      { title: "Pump not priming", body: "A machine that powers on but won't dispense water usually points to a pump or air-lock issue." },
+      { title: "Internal scale buildup", body: "Mineral scale from hard water can restrict water flow through internal lines over time." },
+      { title: "Water reservoir valve sticking", body: "Can cause the machine to run dry even with a full reservoir." },
+    ],
+    faqs: [
+      { q: "My Keurig turns on but won't brew — can you fix that?", a: "In most cases, yes — it's usually a clogged needle or pump issue rather than a failed motor." },
+      { q: "Do you work on all Keurig models?", a: "Yes, we service the full range of Keurig single-serve brewers." },
+    ],
+  },
+
+  cuisinart: {
+    tagline: "Repair for Cuisinart drip coffee makers and single-serve machines.",
+    bluf: "Cuisinart makes some of the most common household drip coffee makers, along with a few single-serve and espresso-style machines. We see a steady stream of pump, heating, and control-board issues across the lineup.",
+    commonIssues: [
+      { title: "Warming plate not heating", body: "A frequent issue on carafe-style drip models after a few years of daily use." },
+      { title: "Pump tube clogging or scale buildup", body: "Mineral scale is the most common cause of slow brewing or a machine that won't complete a cycle." },
+      { title: "Control board or clock malfunction", body: "Can cause programmed brew times to stop working correctly." },
+      { title: "Auto-shutoff failing to trigger", body: "A safety feature worth fixing promptly if it's not engaging correctly." },
+    ],
+    faqs: [
+      { q: "Do you repair Cuisinart drip coffee makers?", a: "Yes — drip coffee makers are one of the machine types we regularly service, Cuisinart included." },
+      { q: "My Cuisinart brews slowly — is that fixable?", a: "Usually, yes — it's often scale buildup restricting water flow, which we can clean and descale." },
+    ],
+  },
+
+  saeco: {
+    tagline: "Super-automatic repair for Saeco's bean-to-cup lineup.",
+    bluf: "Saeco's super-automatic machines, including the Xelsis, Incanto, and PicoBaristo lines, handle grinding, brewing, and often milk texturing in one unit. We diagnose the brew group, ceramic grinder, and milk system issues that tend to show up with regular use.",
+    commonIssues: [
+      { title: "Brew group jamming or won't remove for cleaning", body: "A frequent issue on heavily used machines, often resolved without a full brew group replacement." },
+      { title: "Ceramic grinder wear or inconsistent grind", body: "Saeco's ceramic grinders are durable but still wear down over years of daily use." },
+      { title: "Error codes on the display", body: "We diagnose the underlying cause behind Saeco's on-screen fault codes rather than just clearing them." },
+      { title: "Milk carafe or frother clogging", body: "On models with automatic milk texturing, the milk lines need regular cleaning to avoid clogs." },
+    ],
+    faqs: [
+      { q: "Do you work on the Saeco Xelsis and Incanto?", a: "Yes, we service Saeco's full super-automatic lineup." },
+      { q: "Can you fix a Saeco that won't grind?", a: "In most cases, yes — we diagnose whether it's the grinder itself or an electronic fault before recommending a repair." },
+    ],
+  },
+
+  miele: {
+    tagline: "Repair for Miele's built-in and countertop coffee systems.",
+    bluf: "Miele's coffee systems are often built into custom kitchen cabinetry and plumbed directly to a water line, which makes them some of the more involved machines we service. We diagnose both the coffee-making mechanics and the plumbing connections specific to a built-in installation.",
+    commonIssues: [
+      { title: "Built-in water line connection issues", body: "Plumbed-in models can develop leaks or flow problems at the water line connection itself, not just inside the machine." },
+      { title: "Brew unit jamming or wear", body: "The same precision brew unit mechanics found in other super-automatics, built to Miele's tighter tolerances." },
+      { title: "Software or firmware error codes", body: "Miele's built-in systems display specific fault codes that point to the underlying issue." },
+      { title: "Milk system or frother malfunction", body: "On models with integrated milk texturing, the milk lines are a common point of failure." },
+    ],
+    faqs: [
+      { q: "Do you service built-in Miele coffee systems, not just countertop units?", a: "Yes — we work on both built-in, plumbed-in Miele systems and standalone countertop models." },
+      { q: "Miele parts seem expensive — is repair still worth it?", a: "Often, yes. We'll diagnose the issue and give you an upfront quote before any work begins, so you can decide." },
+    ],
+  },
+
+  "nuova-simonelli": {
+    tagline: "Prosumer and commercial repair for Nuova Simonelli's Appia, Oscar, and Musica lines.",
+    bluf: "Nuova Simonelli spans serious home setups (Oscar, Musica) and full commercial café equipment (Appia), and we service both. Commercial units in particular see far more daily cycles than a home machine, which shows up in group head and pump wear.",
+    commonIssues: [
+      { title: "Group head wear under heavy use", body: "Especially relevant for commercial Appia units running many cycles a day in a café." },
+      { title: "PID or temperature stability issues", body: "Inconsistent brew temperature is one of the first things we check on Nuova Simonelli machines." },
+      { title: "Volumetric dosing electronics malfunction", body: "On models with volumetric dosing, a fault here can throw off shot consistency." },
+      { title: "Pump wear from continuous use", body: "Commercial units see significantly more pump cycles than home prosumer machines like the Oscar or Musica." },
+    ],
+    faqs: [
+      { q: "Do you service commercial Nuova Simonelli equipment in cafés?", a: "Yes — commercial Nuova Simonelli repair falls under our commercial espresso machine service, separate from our residential work." },
+      { q: "Do you work on the home-sized Oscar and Musica models?", a: "Yes, we service both the prosumer Oscar/Musica line and larger commercial Nuova Simonelli equipment." },
+    ],
+  },
 };
