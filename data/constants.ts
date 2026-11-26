@@ -22,6 +22,12 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.quickespressorepair.com"
 ).replace(/\/$/, "");
 
+// Formspree endpoint for the pickup-request form. Formspree form IDs are not
+// secret (they're meant to be used client-side), so this lives directly in
+// source rather than as an env var. Submissions are emailed to whatever
+// address is configured for this form in the Formspree dashboard.
+export const PICKUP_FORM_ENDPOINT = "https://formspree.io/f/xeagnndo";
+
 export const BUSINESS = {
   name: "Quick Espresso Repair",
   phoneDisplay: "(442) 445-0378",

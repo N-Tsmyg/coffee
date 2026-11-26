@@ -35,12 +35,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## Environment Variables
+## Pickup Request Form
 
-The pickup request form on `/contact` sends an email via [Resend](https://resend.com). Set these in Vercel (Project Settings → Environment Variables) and in a local `.env.local` for development:
+The pickup request form (on the homepage and `/contact`) submits directly to [Formspree](https://formspree.io) — no server-side API route or email provider env vars needed. The endpoint is defined as `PICKUP_FORM_ENDPOINT` in `data/constants.ts`. Formspree form IDs aren't secret (they're meant to be used client-side), so it's fine to have it in source.
 
-- `RESEND_API_KEY` — API key from a (free) Resend account.
-- `PICKUP_NOTIFICATION_EMAIL` — the inbox that should receive pickup requests.
-- `PICKUP_FROM_EMAIL` — optional; defaults to Resend's shared sandbox address (`onboarding@resend.dev`), which can only deliver to the Resend account's own email until a sending domain is verified. Once a domain is verified in Resend, set this to an address on that domain (e.g. `pickups@quickespressorepair.com`).
-
-Until these are set, the form will show the customer an error asking them to call instead — submissions are also logged server-side so nothing is silently lost.
+To change which inbox receives submissions, or to review past submissions, log into the Formspree dashboard for this form — no code change required unless the form itself is swapped out for a different Formspree form ID.

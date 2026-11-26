@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BUSINESS, BRANDS } from "@/data/constants";
+import { BUSINESS, BRANDS, PICKUP_FORM_ENDPOINT } from "@/data/constants";
 
 const BRAND_OPTIONS = [...BRANDS.map((b) => b.name)].sort((a, b) =>
   a.localeCompare(b)
@@ -12,6 +12,21 @@ type Status = "idle" | "submitting" | "success" | "error";
 function toLocalDateValue(d: Date): string {
   const pad = (n: number) => String(n).padStart(2, "0");
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+function formatPreferredDate(preferredDate: string): string {
+  // Parse as a local calendar date (not UTC midnight) so the displayed
+  // weekday/day never shifts by a day depending on the browser's timezone.
+  const [year, month, day] = preferredDate.split("-").map(Number);
+  const date = new Date(year, (month || 1) - 1, day || 1);
+  if (Number.isNaN(date.getTime())) return preferredDate;
+
+  return new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
 }
 
 export function PickupRequestForm() {
@@ -30,34 +45,47 @@ export function PickupRequestForm() {
 
     const form = event.currentTarget;
     const data = new FormData(form);
+    const name = String(data.get("name") || "");
+    const preferredDateRaw = String(data.get("preferredDate") || "");
+    const description = String(data.get("description") || "");
+
     const payload = {
-      name: String(data.get("name") || ""),
+      name,
       phone: String(data.get("phone") || ""),
       address: String(data.get("address") || ""),
       brand: String(data.get("brand") || ""),
-      preferredDate: String(data.get("preferredDate") || ""),
-      description: String(data.get("description") || ""),
+      preferredDate: preferredDateRaw
+        ? formatPreferredDate(preferredDateRaw)
+        : "Not specified — call to schedule",
+      description: description.trim() ? description : "(none provided)",
+      _subject: `Pickup request — ${name}`,
     };
 
     try {
-      const res = await fetch("/api/pickup-request", {
+      const res = await fetch(PICKUP_FORM_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify(payload),
       });
-      const result = await res.json().catch(() => ({}));
 
-      if (!res.ok) {
-        setStatus("error");
-        setErrorMessage(
-          result?.error ||
-            "Something went wrong submitting your request. Please call us instead."
-        );
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
         return;
       }
 
-      setStatus("success");
-      form.reset();
+      const result = await res.json().catch(() => null);
+      const message =
+        result?.errors
+          ?.map((e: { message: string }) => e.message)
+          .join(", ") ||
+        result?.error ||
+        "Something went wrong submitting your request. Please call us instead.";
+      setStatus("error");
+      setErrorMessage(message);
     } catch {
       setStatus("error");
       setErrorMessage(
