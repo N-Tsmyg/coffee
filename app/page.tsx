@@ -69,7 +69,7 @@ const FAQ_PREVIEW = [
   },
   {
     q: "What payment methods do you accept?",
-    a: `We accept ${BUSINESS.paymentMethods.join(", ")}. We do not currently accept card payments.`,
+    a: `We accept ${BUSINESS.paymentMethods.join(", ")}.`,
   },
 ];
 

@@ -9,29 +9,26 @@ interface PickupRequestBody {
   phone?: string;
   address?: string;
   brand?: string;
-  preferredTime?: string; // datetime-local value, e.g. "2026-11-25T14:00"
+  preferredDate?: string; // date value, e.g. "2026-11-27"
   description?: string;
 }
 
 const GENERIC_ERROR =
   "We couldn't submit your request online right now. Please call us instead.";
 
-function formatWindow(preferredTime: string): string {
-  const start = new Date(preferredTime);
-  if (Number.isNaN(start.getTime())) return preferredTime;
+function formatDate(preferredDate: string): string {
+  // Parse as a local calendar date (not UTC midnight) so the displayed
+  // weekday/day never shifts by a day depending on server timezone.
+  const [year, month, day] = preferredDate.split("-").map(Number);
+  const date = new Date(year, (month || 1) - 1, day || 1);
+  if (Number.isNaN(date.getTime())) return preferredDate;
 
-  const end = new Date(start.getTime() + 3 * 60 * 60 * 1000);
-  const dateFmt = new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat("en-US", {
     weekday: "long",
     month: "long",
     day: "numeric",
-  });
-  const timeFmt = new Intl.DateTimeFormat("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-  });
-
-  return `${dateFmt.format(start)}, between ${timeFmt.format(start)} and ${timeFmt.format(end)}`;
+    year: "numeric",
+  }).format(date);
 }
 
 export async function POST(request: Request) {
@@ -42,7 +39,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  const { name, phone, address, brand, preferredTime, description } = body;
+  const { name, phone, address, brand, preferredDate, description } = body;
 
   if (!name?.trim() || !phone?.trim() || !address?.trim() || !brand?.trim()) {
     return NextResponse.json(
@@ -51,8 +48,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const windowText = preferredTime?.trim()
-    ? formatWindow(preferredTime.trim())
+  const dateText = preferredDate?.trim()
+    ? formatDate(preferredDate.trim())
     : "Not specified — call to schedule";
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -64,7 +61,7 @@ export async function POST(request: Request) {
     // tell the customer to call instead of pretending it went through.
     console.error(
       "Pickup request received but email is not configured (set RESEND_API_KEY and PICKUP_NOTIFICATION_EMAIL):",
-      { name, phone, address, brand, preferredTime, description }
+      { name, phone, address, brand, preferredDate, description }
     );
     return NextResponse.json({ error: GENERIC_ERROR }, { status: 503 });
   }
@@ -78,7 +75,7 @@ export async function POST(request: Request) {
     `Phone: ${phone}`,
     `Address: ${address}`,
     `Coffee machine brand: ${brand}`,
-    `Preferred pickup window: ${windowText}`,
+    `Preferred pickup date: ${dateText}`,
     `Notes: ${description?.trim() ? description.trim() : "(none provided)"}`,
   ].join("\n");
 

@@ -10,7 +10,6 @@
 // policy update to this file and to workflows/04-content-accuracy.md first:
 //   - A repair price range (only the $145 diagnostic fee is confirmed)
 //   - A warranty period or warranty claim
-//   - A card payment option (cards are not accepted)
 //   - Same-day / next-day / rush turnaround language
 //   - A shop drop-off option (pickup only)
 // =============================================================================
@@ -40,8 +39,8 @@ export const BUSINESS = {
   pickupOnly: true, // no shop drop-off — every machine comes in via scheduled pickup
   averageTurnaroundDays: 7,
   averageTurnaroundDisplay: "about 7 business days",
-  paymentMethods: ["Cash", "Check", "Zelle", "Venmo"],
-  cardPaymentsAccepted: false,
+  paymentMethods: ["Cash", "Check", "Zelle", "Venmo", "Cards"],
+  cardPaymentsAccepted: true,
   warrantyConfirmed: false, // do not state any warranty period anywhere
   allBrandsServiced: true, // no brand restrictions
 } as const;

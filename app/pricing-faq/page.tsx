@@ -30,7 +30,7 @@ const FAQ_GROUPS = [
       },
       {
         q: "Do you accept credit or debit cards?",
-        a: "Not currently — we accept cash, check, Zelle, and Venmo.",
+        a: "Yes — in addition to cash, check, Zelle, and Venmo.",
       },
     ],
   },

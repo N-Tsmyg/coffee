@@ -9,20 +9,18 @@ const BRAND_OPTIONS = [...BRANDS.map((b) => b.name)].sort((a, b) =>
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-function toLocalInputValue(d: Date): string {
+function toLocalDateValue(d: Date): string {
   const pad = (n: number) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(
-    d.getHours()
-  )}:${pad(d.getMinutes())}`;
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
 export function PickupRequestForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [minDateTime, setMinDateTime] = useState<string | undefined>(undefined);
+  const [minDate, setMinDate] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    setMinDateTime(toLocalInputValue(new Date()));
+    setMinDate(toLocalDateValue(new Date()));
   }, []);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -37,7 +35,7 @@ export function PickupRequestForm() {
       phone: String(data.get("phone") || ""),
       address: String(data.get("address") || ""),
       brand: String(data.get("brand") || ""),
-      preferredTime: String(data.get("preferredTime") || ""),
+      preferredDate: String(data.get("preferredDate") || ""),
       description: String(data.get("description") || ""),
     };
 
@@ -164,26 +162,22 @@ export function PickupRequestForm() {
         </div>
 
         <div>
-          <label htmlFor="preferredTime" className="block text-sm font-semibold text-charcoal">
-            Preferred pickup time (optional)
+          <label htmlFor="preferredDate" className="block text-sm font-semibold text-charcoal">
+            Preferred pickup date
           </label>
           <input
-            id="preferredTime"
-            name="preferredTime"
-            type="datetime-local"
-            min={minDateTime}
+            id="preferredDate"
+            name="preferredDate"
+            type="date"
+            min={minDate}
             className="mt-1.5 w-full rounded-md border border-line bg-offwhite px-4 py-3 text-base text-charcoal"
           />
-          <p className="mt-1.5 text-sm text-slate">
-            If you give a time, we&apos;ll aim to arrive within a 3-hour window
-            starting then. Otherwise we&apos;ll call you to schedule.
-          </p>
         </div>
       </div>
 
       <div>
         <label htmlFor="description" className="block text-sm font-semibold text-charcoal">
-          What&apos;s going on with your machine? (optional)
+          What&apos;s going on with your machine?
         </label>
         <textarea
           id="description"
@@ -199,13 +193,15 @@ export function PickupRequestForm() {
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={status === "submitting"}
-        className="flex w-full items-center justify-center rounded-md bg-copper px-8 py-4 text-lg font-semibold text-offwhite hover:bg-copper-dark disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
-      >
-        {status === "submitting" ? "Submitting…" : "Submit Pickup Request"}
-      </button>
+      <div className="flex justify-center">
+        <button
+          type="submit"
+          disabled={status === "submitting"}
+          className="flex w-full items-center justify-center rounded-md bg-copper px-8 py-4 text-lg font-semibold text-offwhite hover:bg-copper-dark disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        >
+          {status === "submitting" ? "Submitting…" : "Submit Pickup Request"}
+        </button>
+      </div>
     </form>
   );
 }

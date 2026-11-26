@@ -22,20 +22,6 @@ export default function ContactPage() {
             time to come get it.
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href={`tel:${BUSINESS.phoneTel}`}
-              className="flex items-center justify-center rounded-md bg-copper px-10 py-5 text-xl font-semibold text-offwhite hover:bg-copper-dark"
-            >
-              Call {BUSINESS.phoneDisplay}
-            </a>
-            <a
-              href="#pickup-form"
-              className="flex items-center justify-center rounded-md border border-charcoal px-10 py-5 text-xl font-semibold text-charcoal hover:bg-charcoal hover:text-offwhite"
-            >
-              Fill Out the Form
-            </a>
-          </div>
         </div>
       </section>
 
